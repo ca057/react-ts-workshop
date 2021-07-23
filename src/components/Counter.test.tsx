@@ -3,9 +3,10 @@ import { render, fireEvent } from "@testing-library/react";
 import Counter from "./Counter";
 
 test("should be possible to increment the counter", () => {
-  const { getByText } = render(<Counter />);
+  const initialValue = 0;
+  const { getByText } = render(<Counter initialValue={initialValue} />);
 
-  const countElement = getByText("0");
+  const countElement = getByText(initialValue);
   const incrementButton = getByText("+");
 
   fireEvent.click(incrementButton);
@@ -14,9 +15,10 @@ test("should be possible to increment the counter", () => {
 });
 
 test("should be possible to decrement the counter", () => {
-  const { getByText } = render(<Counter />);
+  const initialValue = 0;
+  const { getByText } = render(<Counter initialValue={initialValue} />);
 
-  const countElement = getByText("0");
+  const countElement = getByText(initialValue);
   const decrementButton = getByText("-");
 
   fireEvent.click(decrementButton);
