@@ -2,8 +2,13 @@ import React from "react";
 
 import { Book } from "../domain/types";
 
-interface BookListItemProps extends Book {}
+interface BookListItemProps {
+  book: Book;
+  onClick: (book: Book) => void;
+}
 
-const BookListItem: React.FC<BookListItemProps> = ({ title }) => <p>{title}</p>;
+const BookListItem: React.FC<BookListItemProps> = ({ book, onClick }) => (
+  <button onClick={() => onClick(book)}>{book.title}</button>
+);
 
 export default BookListItem;

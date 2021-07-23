@@ -12,7 +12,11 @@ function App() {
       <Counter initialValue={0} />
       <Counter />
       <BookList
-        books={[{ title: "My first book" }, { title: "My second book" }]}
+        books={[
+          { title: "My first book", price: 11.11 },
+          { title: "My second book", price: 22.22 },
+        ]}
+        onItemClick={(book) => alert(book.price)}
       />
     </>
   );
