@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <SimpleName />
+      <Counter initialValue={0} />
       <Counter />
     </>
   );
