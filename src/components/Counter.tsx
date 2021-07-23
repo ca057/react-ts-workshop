@@ -6,7 +6,17 @@ const Counter = () => {
   const incrementCount = () => {
     setCount((c) => c + 1);
   };
-  return <button onClick={incrementCount}>{count}</button>;
+  const decrementCount = () => {
+    setCount((c) => c - 1);
+  };
+
+  return (
+    <div className="row">
+      <button onClick={decrementCount}>-</button>
+      <p>{count}</p>
+      <button onClick={incrementCount}>+</button>
+    </div>
+  );
 };
 
 export default Counter;
