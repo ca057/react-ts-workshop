@@ -1,4 +1,6 @@
 export interface Book {
   title: string;
-  price: number;
+  subtitle?: string;
+  price?: number;
+  numPages?: number;
 }

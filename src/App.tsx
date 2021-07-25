@@ -4,6 +4,7 @@ import "./App.css";
 import SimpleName from "./components/SimpleName";
 import Counter from "./components/Counter";
 import BookList from "./components/BookList";
+import Book from "./components/Book";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         ]}
         onItemClick={(book) => alert(book.price)}
       />
+      <Book />
     </>
   );
 }
