@@ -13,11 +13,15 @@ const Book: React.FC = () => {
     fetchBook();
   }, []);
 
+  if (!book) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
-      <p>{book?.title}</p>
-      <p>{book?.subtitle}</p>
-      <p>{book?.numPages} pages</p>
+      <p>{book.title}</p>
+      <p>{book.subtitle}</p>
+      <p>{book.numPages} pages</p>
     </div>
   );
 };
