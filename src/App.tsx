@@ -21,7 +21,11 @@ function App() {
         onItemClick={(book) => alert(book.price)}
       />
       <Book />
-      <BookFormBuildInValidation />
+      <BookFormBuildInValidation
+        onSubmit={(book) => console.log(book)}
+        book={{ title: "this is the initial book title" }}
+        title="Edit book"
+      />
     </>
   );
 }

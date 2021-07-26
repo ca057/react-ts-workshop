@@ -3,12 +3,26 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import { Book } from "../domain/types";
 import "./BookFormBuildInValidation.css";
 
-const BookFormBuildInValidation: React.FC = () => {
-  const [book, setBook] = useState<Book>({ title: "", isbn: "" });
+const defaultBook: Book = {
+  title: "",
+  isbn: "",
+};
+
+interface BookFormBuildInValidationProps {
+  book: Book;
+  onSubmit: (book: Book) => void;
+  title?: string;
+}
+const BookFormBuildInValidation: React.FC<BookFormBuildInValidationProps> = ({
+  book: initalBook,
+  title = "Book form with build-in validation",
+  onSubmit,
+}) => {
+  const [book, setBook] = useState<Book>({ ...defaultBook, ...initalBook });
 
   const sendForm = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(book);
+    onSubmit(book);
   };
 
   const getChangeHandler =
@@ -20,7 +34,7 @@ const BookFormBuildInValidation: React.FC = () => {
   return (
     <form onSubmit={sendForm}>
       <fieldset>
-        <legend>Book form with build-in validation</legend>
+        <legend>{title}</legend>
         <div>
           <label htmlFor="title">Title: </label>
           <input
@@ -42,6 +56,7 @@ const BookFormBuildInValidation: React.FC = () => {
             value={book.isbn}
             required
             onChange={getChangeHandler("isbn")}
+            pattern="((?:[\dX]{13})|(?:[\d\-X]{17})|(?:[\dX]{10})|(?:[\d\-X]{13}))" // taken from https://regexr.com/38pq9
           />
         </div>
         <button type="submit">Submit</button>
