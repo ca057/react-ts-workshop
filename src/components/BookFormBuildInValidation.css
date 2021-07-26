@@ -1,0 +1,11 @@
+fieldset {
+  margin: 4px;
+}
+
+fieldset > * {
+  display: block;
+}
+
+fieldset > *:not(:last-child):not(legend) {
+  margin-bottom: 4px;
+}
