@@ -5,6 +5,7 @@ import SimpleName from "./components/SimpleName";
 import Counter from "./components/Counter";
 import BookList from "./components/BookList";
 import Book from "./components/Book";
+import BookFormBuildInValidation from "./components/BookFormBuildInValidation";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         onItemClick={(book) => alert(book.price)}
       />
       <Book />
+      <BookFormBuildInValidation />
     </>
   );
 }
