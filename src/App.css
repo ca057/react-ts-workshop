@@ -1,0 +1,13 @@
+
+.error {
+  color: red;
+}
+
+.success {
+  color: darkolivegreen;
+}
+
+.hint {
+  color: darkslategray;
+  font-style: italic;
+}

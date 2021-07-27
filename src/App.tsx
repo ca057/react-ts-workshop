@@ -6,6 +6,7 @@ import Counter from "./components/Counter";
 import BookList from "./components/BookList";
 import Book from "./components/Book";
 import BookFormBuildInValidation from "./components/BookFormBuildInValidation";
+import AuthorFormWithOwnValidation from "./components/AuthorFormWithOwnValidation";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         book={{ title: "this is the initial book title" }}
         title="Edit book"
       />
+      <AuthorFormWithOwnValidation onSubmit={(data) => console.log(data)} />
     </>
   );
 }
