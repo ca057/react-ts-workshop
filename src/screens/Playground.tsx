@@ -18,9 +18,8 @@ function Playground() {
           { title: "My first book", price: 11.11 },
           { title: "My second book", price: 22.22 },
         ]}
-        onItemClick={(book) => alert(book.price)}
       />
-      <Book />
+      <Book book={{ title: "My first book", price: 11.11 }} />
       <BookFormBuildInValidation
         onSubmit={(book) => console.log(book)}
         book={{ title: "this is the initial book title" }}
