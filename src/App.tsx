@@ -1,33 +1,33 @@
 import React from "react";
+import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 
 import "./App.css";
-import SimpleName from "./components/SimpleName";
-import Counter from "./components/Counter";
-import BookList from "./components/BookList";
-import Book from "./components/Book";
-import BookFormBuildInValidation from "./components/BookFormBuildInValidation";
-import AuthorFormWithOwnValidation from "./components/AuthorFormWithOwnValidation";
+import Books from "./screens/Books";
+import Playground from "./screens/Playground";
 
 function App() {
   return (
     <>
-      <SimpleName />
-      <Counter initialValue={0} />
-      <Counter />
-      <BookList
-        books={[
-          { title: "My first book", price: 11.11 },
-          { title: "My second book", price: 22.22 },
-        ]}
-        onItemClick={(book) => alert(book.price)}
-      />
-      <Book />
-      <BookFormBuildInValidation
-        onSubmit={(book) => console.log(book)}
-        book={{ title: "this is the initial book title" }}
-        title="Edit book"
-      />
-      <AuthorFormWithOwnValidation onSubmit={(data) => console.log(data)} />
+      <nav>
+        <NavLink exact strict activeClassName="activeLink" to="/">
+          Home
+        </NavLink>
+        <NavLink activeClassName="activeLink" to="/playground">
+          Playground
+        </NavLink>
+        <NavLink activeClassName="activeLink" to="/books">
+          Books
+        </NavLink>
+      </nav>
+      <Switch>
+        <Redirect exact from="/" to="/books" />
+        <Route path="/playground">
+          <Playground />
+        </Route>
+        <Route path="/books">
+          <Books />
+        </Route>
+      </Switch>
     </>
   );
 }
