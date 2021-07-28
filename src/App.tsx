@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 
 import "./App.css";
-import Books from "./screens/Books";
+import Books from "./screens/books";
+import Book from "./screens/book";
 import Playground from "./screens/Playground";
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
         <Redirect exact from="/" to="/books" />
         <Route path="/playground">
           <Playground />
+        </Route>
+        <Route path="/books/:isbn">
+          <Book />
         </Route>
         <Route path="/books">
           <Books />
