@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import BookList from "./BookList";
+import { BrowserRouter } from "react-router-dom";
 
 describe("components/BookList", () => {
   test("renders all books", () => {
@@ -9,9 +10,9 @@ describe("components/BookList", () => {
       { title: "My first book", price: 11.11 },
       { title: "My second book", price: 22.22 },
     ];
-    const { getByText } = render(
-      <BookList books={books} onItemClick={jest.fn()} />
-    );
+    const { getByText } = render(<BookList books={books} />, {
+      wrapper: BrowserRouter,
+    });
 
     for (const book of books) {
       expect(getByText(book.title)).toBeTruthy();

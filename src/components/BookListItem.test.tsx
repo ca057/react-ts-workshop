@@ -1,18 +1,16 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import BookListItem from "./BookListItem";
+import { BrowserRouter } from "react-router-dom";
 
 describe("components/BookListItem", () => {
-  test("calls callback with book when clicked", () => {
+  test("renders book with title", () => {
     const book = { title: "My first book", price: 11.11 };
-    const onClickMock = jest.fn();
-    const { getByText } = render(
-      <BookListItem book={book} onClick={onClickMock} />
-    );
+    const { getByText } = render(<BookListItem book={book} />, {
+      wrapper: BrowserRouter,
+    });
 
-    fireEvent.click(getByText(book.title));
-
-    expect(onClickMock).toHaveBeenCalledWith(book);
+    expect(getByText(book.title)).toBeTruthy();
   });
 });
