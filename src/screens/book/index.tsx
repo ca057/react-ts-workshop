@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link, Route, useHistory, useRouteMatch } from "react-router-dom";
 
 import BookDisplay from "../../components/Book";
 import EditBook from "../../components/EditBook";
+import { useBook } from "../../domain/book";
 import { Book as BookI } from "../../domain/types";
 
 const Book: React.FC = () => {
@@ -12,16 +12,8 @@ const Book: React.FC = () => {
     path,
   } = useRouteMatch<{ isbn: string }>();
   const { goBack } = useHistory();
-  const [book, setBook] = useState<BookI | null>(null);
 
-  useEffect(() => {
-    async function fetchBook() {
-      const response = await fetch(`http://localhost:4730/books/${isbn}`);
-      const bookFromApi = await response.json();
-      setBook(bookFromApi);
-    }
-    fetchBook();
-  }, [isbn]);
+  const book = useBook(isbn);
 
   if (book === null) {
     return <p>Loading...</p>;
