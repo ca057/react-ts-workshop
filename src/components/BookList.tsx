@@ -11,7 +11,7 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
   return (
     <ul>
       {books.map((book) => (
-        <li key={book.title}>
+        <li key={book.isbn}>
           <BookListItem book={book} />
         </li>
       ))}
