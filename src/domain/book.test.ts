@@ -2,6 +2,8 @@ import { renderHook } from "@testing-library/react-hooks";
 import { useBook } from "./book";
 
 const isbn = "test-isbn";
+const book = { title: "test-book", isbn };
+
 describe("domain/book", () => {
   let originalFetch = global.fetch;
   beforeEach(() => {
@@ -33,7 +35,6 @@ describe("domain/book", () => {
   });
 
   test("should return the book from the API response", async () => {
-    const book = { title: "test-book", isbn };
     global.fetch = jest.fn(() =>
       Promise.resolve({ json: () => book } as unknown as Response)
     );
@@ -42,5 +43,20 @@ describe("domain/book", () => {
     await waitForNextUpdate();
 
     expect(result.current).toEqual(book);
+  });
+
+  test("should rerun the API call if rerendered with a new ISBN", async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({ json: () => ({}) } as unknown as Response)
+    );
+    const { rerender, waitForNextUpdate } = renderHook(() => useBook(isbn));
+
+    await waitForNextUpdate();
+    expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining(isbn));
+
+    const newIsbn = "new-isbn";
+    rerender(newIsbn);
+
+    expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining(isbn));
   });
 });
