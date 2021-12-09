@@ -1,24 +1,20 @@
-import { useState } from "react";
+import { Action, Dispatch } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+import { rootReducer } from "../store";
+import { decrement, increment, reset } from "../store/count";
 
-interface CounterProps {
-  initialValue?: number;
-}
-
-const Counter: React.FC<CounterProps> = ({ initialValue = 100 }) => {
-  const [count, setCount] = useState(initialValue);
-
-  const incrementCount = () => {
-    setCount((c) => c + 1);
-  };
-  const decrementCount = () => {
-    setCount((c) => c - 1);
-  };
+const Counter: React.VFC = () => {
+  const count = useSelector<ReturnType<typeof rootReducer>, number>(
+    (state) => state.count
+  );
+  const dispatch = useDispatch<Dispatch<Action>>();
 
   return (
     <div className="row">
-      <button onClick={decrementCount}>-</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
       <p>{count}</p>
-      <button onClick={incrementCount}>+</button>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(reset())}>reset</button>
     </div>
   );
 };

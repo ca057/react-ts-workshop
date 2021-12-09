@@ -7,11 +7,10 @@ import Book from "./../components/Book";
 import BookFormBuildInValidation from "./../components/BookFormBuildInValidation";
 import AuthorFormWithOwnValidation from "./../components/AuthorFormWithOwnValidation";
 
-function Playground() {
+const Playground: React.VFC = function() {
   return (
     <>
       <SimpleName />
-      <Counter initialValue={0} />
       <Counter />
       <BookList
         books={[
