@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/BookList renders a booklist correctly 1`] = `
+<ul>
+  <li>
+    <a
+      href="/books/undefined"
+      onClick={[Function]}
+    >
+      My first book
+    </a>
+  </li>
+  <li>
+    <a
+      href="/books/undefined"
+      onClick={[Function]}
+    >
+      My second book
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`components/BookList renders a booklist item correctly 1`] = `
+<ul>
+  <li>
+    <a
+      href="/books/undefined"
+      onClick={[Function]}
+    >
+      My first book
+    </a>
+  </li>
+  <li>
+    <a
+      href="/books/undefined"
+      onClick={[Function]}
+    >
+      My second book
+    </a>
+  </li>
+</ul>
+`;
