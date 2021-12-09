@@ -1,9 +1,7 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { render } from "./common/util/test-utils";
 import App from "./App";
 
 test("renders the app", () => {
-  const { container } = render(<App />, { wrapper: BrowserRouter });
+  const { container } = render(<App />);
   expect(container).toBeInTheDocument();
 });

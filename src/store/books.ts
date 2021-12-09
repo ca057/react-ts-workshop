@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Book } from "../domain/types";
 
-interface BooksState {
+export interface BooksState {
   books: Book[];
 }
 
