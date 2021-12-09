@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 
-import AuthorFormWithOwnValidation from "./AuthorFormWithOwnValidation";
+import AuthorFormWithOwnValidation from ".";
 
 describe("components/AuthorFormWithOwnValidation", () => {
   test("renders the input for the email", () => {

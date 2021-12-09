@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import BookListItem from "./BookListItem";
+import BookListItem from ".";
 import { BrowserRouter } from "react-router-dom";
 
 describe("components/BookListItem", () => {

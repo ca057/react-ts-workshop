@@ -1,11 +1,11 @@
 import React from "react";
 
-import SimpleName from "./../components/SimpleName";
-import Counter from "./../components/Counter";
-import BookList from "./../components/BookList";
-import Book from "./../components/Book";
-import BookFormBuildInValidation from "./../components/BookFormBuildInValidation";
-import AuthorFormWithOwnValidation from "./../components/AuthorFormWithOwnValidation";
+import SimpleName from "../components/SimpleName";
+import Counter from "../components/Counter";
+import BookList from "../components/BookList";
+import Book from "../components/Book";
+import BookFormBuildInValidation from "../components/BookFormBuildInValidation";
+import AuthorFormWithOwnValidation from "../components/AuthorFormWithOwnValidation";
 
 const Playground: React.VFC = function() {
   return (

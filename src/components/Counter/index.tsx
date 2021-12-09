@@ -1,7 +1,7 @@
 import { Action, Dispatch } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { rootReducer } from "../store";
-import { decrement, increment, reset } from "../store/count";
+import { rootReducer } from "../../store";
+import { decrement, increment, reset } from "../../store/count";
 
 const Counter: React.VFC = () => {
   const count = useSelector<ReturnType<typeof rootReducer>, number>(

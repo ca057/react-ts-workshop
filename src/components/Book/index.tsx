@@ -1,4 +1,4 @@
-import { Book as BookI } from "../domain/types";
+import { Book as BookI } from "../../domain/types";
 
 interface BookProps {
   book: BookI;

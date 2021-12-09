@@ -1,26 +1,26 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 
-import { Book } from "../domain/types";
-import "./BookFormBuildInValidation.css";
+import { Book } from "../../domain/types";
+import "../BookFormBuildInValidation/BookFormBuildInValidation.css";
 
 const defaultBook: Book = {
   title: "",
   isbn: "",
 };
 
-interface BookFormBuildInValidationProps {
+interface EditBookProps {
   book: Book;
   onSubmit: (book: Book) => void;
   title?: string;
 }
-const BookFormBuildInValidation: React.VFC<BookFormBuildInValidationProps> = ({
+const EditBook: React.VFC<EditBookProps> = ({
   book: initalBook,
-  title = "Book form with build-in validation",
+  title = "Edit Book",
   onSubmit,
 }) => {
   const [book, setBook] = useState<Book>({ ...defaultBook, ...initalBook });
 
-  const sendForm = (event: FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(book);
   };
@@ -32,7 +32,7 @@ const BookFormBuildInValidation: React.VFC<BookFormBuildInValidationProps> = ({
     };
 
   return (
-    <form onSubmit={sendForm}>
+    <form onSubmit={handleOnSubmit}>
       <fieldset>
         <legend>{title}</legend>
         <div>
@@ -65,4 +65,4 @@ const BookFormBuildInValidation: React.VFC<BookFormBuildInValidationProps> = ({
   );
 };
 
-export default BookFormBuildInValidation;
+export default EditBook;

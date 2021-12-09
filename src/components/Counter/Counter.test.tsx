@@ -1,6 +1,6 @@
 // Use custom render method (so that the test also works with Redux)
-import { render, fireEvent } from "../common/util/test-utils";
-import Counter from "./Counter";
+import { render, fireEvent } from "../../common/util/test-utils";
+import Counter from ".";
 
 const initialValue = 0;
 

@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import Book from "./Book";
+import Book from ".";
 
 describe("components/Book", () => {
   test("displays passed book", async () => {

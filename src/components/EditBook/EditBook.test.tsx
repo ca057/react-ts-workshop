@@ -1,12 +1,12 @@
 import { fireEvent, render } from "@testing-library/react";
 
-import BookFormBuildInValidation from "./BookFormBuildInValidation";
+import EditBook from ".";
 
-describe("components/BookFormBuildInValidation", () => {
+describe("components/EditBook", () => {
   test("renders the passed book", () => {
     const book = { title: "Java Web Scraping Handbook", isbn: "1001606140805" };
     const { getByDisplayValue } = render(
-      <BookFormBuildInValidation book={book} onSubmit={jest.fn()} />
+      <EditBook book={book} onSubmit={jest.fn()} />
     );
 
     expect(getByDisplayValue(book.title)).toBeTruthy();
@@ -16,7 +16,7 @@ describe("components/BookFormBuildInValidation", () => {
   test("allows editing data of a book", () => {
     const book = { title: "Java Web Scraping Handbook", isbn: "1001606140805" };
     const { getByDisplayValue } = render(
-      <BookFormBuildInValidation book={book} onSubmit={jest.fn()} />
+      <EditBook book={book} onSubmit={jest.fn()} />
     );
 
     const updatedBookTitle = "Java Web Scraping Handbook Next Volume";
@@ -33,7 +33,7 @@ describe("components/BookFormBuildInValidation", () => {
     const book = { title: "Java Web Scraping Handbook", isbn: "1001606140805" };
     const onSubmitMock = jest.fn();
     const { getByText } = render(
-      <BookFormBuildInValidation book={book} onSubmit={onSubmitMock} />
+      <EditBook book={book} onSubmit={onSubmitMock} />
     );
 
     fireEvent.click(getByText("Submit"));

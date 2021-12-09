@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Book } from "../domain/types";
-import BookListItem from "./BookListItem";
+import { Book } from "../../domain/types";
+import BookListItem from "../BookListItem";
 
 interface BookListProps {
   books: Book[];
