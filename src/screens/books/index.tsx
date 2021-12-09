@@ -4,7 +4,7 @@ import BookList from "../../components/BookList";
 import { rootReducer } from "../../store";
 import { addBooks, BooksState } from "../../store/books";
 
-const Books: React.FC = () => {
+const Books: React.VFC = () => {
   const { books } = useSelector<ReturnType<typeof rootReducer>, BooksState>(
     (state) => state.books
   );

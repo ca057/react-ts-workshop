@@ -5,7 +5,7 @@ import EditBook from "../../components/EditBook";
 import { useBook } from "../../domain/book";
 import { Book as BookI } from "../../domain/types";
 
-const Book: React.FC = () => {
+const Book: React.VFC = () => {
   const {
     params: { isbn },
     url,

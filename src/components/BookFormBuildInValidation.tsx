@@ -13,7 +13,7 @@ interface BookFormBuildInValidationProps {
   onSubmit: (book: Book) => void;
   title?: string;
 }
-const BookFormBuildInValidation: React.FC<BookFormBuildInValidationProps> = ({
+const BookFormBuildInValidation: React.VFC<BookFormBuildInValidationProps> = ({
   book: initalBook,
   title = "Book form with build-in validation",
   onSubmit,

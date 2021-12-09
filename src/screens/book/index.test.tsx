@@ -6,6 +6,7 @@ import * as bookDomain from "../../domain/book";
 
 import BookScreen from "./";
 
+// Mock of Book
 const title = "test-book";
 const isbn = "test-book-isbn";
 const book = { title, isbn };

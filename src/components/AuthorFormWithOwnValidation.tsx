@@ -4,7 +4,7 @@ interface AuthorFormWithOwnValidationProps {
   onSubmit: (data: string) => void
 }
 
-const AuthorFormWithOwnValidation: React.FC<AuthorFormWithOwnValidationProps> = ({
+const AuthorFormWithOwnValidation: React.VFC<AuthorFormWithOwnValidationProps> = ({
   onSubmit
 }) => {
   const [email, setEmail] = React.useState("");

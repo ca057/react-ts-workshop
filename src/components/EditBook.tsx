@@ -13,7 +13,7 @@ interface EditBookProps {
   onSubmit: (book: Book) => void;
   title?: string;
 }
-const EditBook: React.FC<EditBookProps> = ({
+const EditBook: React.VFC<EditBookProps> = ({
   book: initalBook,
   title = "Edit Book",
   onSubmit,

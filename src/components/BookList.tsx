@@ -7,7 +7,7 @@ interface BookListProps {
   books: Book[];
 }
 
-const BookList: React.FC<BookListProps> = ({ books }) => {
+const BookList: React.VFC<BookListProps> = ({ books }) => {
   return (
     <ul>
       {books.map((book) => (

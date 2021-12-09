@@ -7,7 +7,7 @@ interface BookListItemProps {
   book: Book;
 }
 
-const BookListItem: React.FC<BookListItemProps> = ({ book }) => (
+const BookListItem: React.VFC<BookListItemProps> = ({ book }) => (
   <Link to={`/books/${book.isbn}`}>{book.title}</Link>
 );
 

@@ -3,7 +3,7 @@ import { Book as BookI } from "../domain/types";
 interface BookProps {
   book: BookI;
 }
-const Book: React.FC<BookProps> = ({ book }) => {
+const Book: React.VFC<BookProps> = ({ book }) => {
   return (
     <div>
       <p>{book.title}</p>
