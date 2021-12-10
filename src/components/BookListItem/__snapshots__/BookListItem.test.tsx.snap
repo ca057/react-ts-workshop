@@ -5,6 +5,10 @@ exports[`components/BookListItem renders a booklist item correctly 1`] = `
   href="/books/undefined"
   onClick={[Function]}
 >
-  My first book
+  <div
+    className="booklist__item"
+  >
+    My first book
+  </div>
 </a>
 `;
