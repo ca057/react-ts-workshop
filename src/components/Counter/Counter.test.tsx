@@ -1,46 +1,35 @@
 // Use custom render method (so that the test also works with Redux)
-import { render, fireEvent } from "../../common/util/test-utils";
+import { render, fireEvent, screen } from "../../common/util/test-utils";
 import Counter from ".";
-
-const initialValue = 0;
 
 describe("components/Counter", () => {
   test("should be possible to reset the counter", () => {
-    const { getByText } = render(<Counter />);
-    const resetButton = getByText("reset");
+    render(<Counter />);
+    const resetButton = screen.getByText("reset");
     fireEvent.click(resetButton);
 
-    const countElement = getByText(initialValue);
-    fireEvent.click(resetButton);
-
-    expect(countElement.textContent).toBe("0");
+    expect(screen.getByText("0")).toBeTruthy();
   });
 
   test("should be possible to increment the counter", () => {
-    const { getByText } = render(<Counter />);
+    render(<Counter />);
     // reset initial value to 0
-    const resetButton = getByText("reset");
-    fireEvent.click(resetButton);
+    fireEvent.click(screen.getByText("reset"));
 
-    const countElement = getByText(initialValue);
-    const incrementButton = getByText("+");
-
+    const incrementButton = screen.getByText("+");
     fireEvent.click(incrementButton);
 
-    expect(countElement.textContent).toBe("1");
+    expect(screen.getByText("1")).toBeTruthy();
   });
 
   test("should be possible to decrement the counter", () => {
-    const { getByText } = render(<Counter />);
+    render(<Counter />);
     // reset initial value to 0
-    const resetButton = getByText("reset");
-    fireEvent.click(resetButton);
+    fireEvent.click(screen.getByText("reset"));
 
-    const countElement = getByText(initialValue);
-    const decrementButton = getByText("-");
-
+    const decrementButton = screen.getByText("-");
     fireEvent.click(decrementButton);
 
-    expect(countElement.textContent).toBe("-1");
+    expect(screen.getByText("-1")).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 import BookListItem from ".";
@@ -19,11 +19,10 @@ describe("components/BookListItem", () => {
   });
 
   test("renders book with title", () => {
-    const { getByText } = render(<BookListItem book={book} />, {
-      // BookListItem uses <Link /> component from react-router-dom
+    render(<BookListItem book={book} />, {
       wrapper: BrowserRouter,
     });
 
-    expect(getByText(book.title)).toBeTruthy();
+    expect(screen.getByText(book.title)).toBeTruthy();
   });
 });
