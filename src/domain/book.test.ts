@@ -49,14 +49,23 @@ describe("domain/book", () => {
     global.fetch = jest.fn(() =>
       Promise.resolve({ json: () => ({}) } as unknown as Response)
     );
-    const { rerender, waitForNextUpdate } = renderHook(() => useBook(isbn));
+    const { rerender, waitForNextUpdate } = renderHook(
+      (props) => useBook(props.isbn),
+      {
+        initialProps: { isbn },
+      }
+    );
 
     await waitForNextUpdate();
     expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining(isbn));
 
     const newIsbn = "new-isbn";
-    rerender(newIsbn);
+    rerender({ isbn: newIsbn });
 
-    expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining(isbn));
+    await waitForNextUpdate();
+
+    expect(global.fetch).toHaveBeenLastCalledWith(
+      expect.stringContaining(newIsbn)
+    );
   });
 });
