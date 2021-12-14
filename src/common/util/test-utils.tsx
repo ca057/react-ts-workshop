@@ -1,7 +1,7 @@
 import React from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 import { BrowserRouter } from "react-router-dom";
 
 // reducers
@@ -22,12 +22,14 @@ const AllTheProviders: React.FC = ({ children }) => {
 
 const customRender = (
   ui: React.ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>,
-) => render(ui, {
-  wrapper: AllTheProviders, 
-  ...options });
+  options?: Omit<RenderOptions, "wrapper">
+) =>
+  render(ui, {
+    wrapper: AllTheProviders,
+    ...options,
+  });
 
 // re-export the entire testing library
 export * from "@testing-library/react";
 // override render method
-export { customRender as render };
+export { customRender as render, AllTheProviders as Wrapper };
