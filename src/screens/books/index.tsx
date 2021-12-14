@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BookList from "../../components/BookList";
-import { rootReducer } from "../../store";
-import { addBooks, BooksState } from "../../store/books";
+import { addBooks } from "../../store/books";
+import { getAllBooks } from "../../store/selectors";
 
 const Books: React.VFC = () => {
-  const { books } = useSelector<ReturnType<typeof rootReducer>, BooksState>(
-    (state) => state.books
-  );
+  const books = useSelector(getAllBooks);
   const dispatch = useDispatch();
 
   useEffect(() => {
