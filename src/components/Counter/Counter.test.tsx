@@ -1,5 +1,5 @@
 // Use custom render method (so that the test also works with Redux)
-import { render, fireEvent, screen } from "../../common/util/test-utils";
+import { render, screen } from "../../common/util/test-utils";
 import userEvent from "@testing-library/user-event";
 import Counter from ".";
 
