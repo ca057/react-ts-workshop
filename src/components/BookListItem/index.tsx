@@ -10,7 +10,7 @@ interface BookListItemProps {
 
 const BookListItem: React.VFC<BookListItemProps> = ({ book }) => (
   <Link to={`/books/${book.isbn}`}>
-    <div className="booklist__item">{book.title}</div>
+    <span className="booklist__item">{book.title}</span>
   </Link>
 );
 

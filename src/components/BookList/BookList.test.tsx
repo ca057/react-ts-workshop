@@ -7,8 +7,8 @@ import { BrowserRouter, MemoryRouter } from "react-router-dom";
 describe("components/BookList", () => {
   // mock of a list of books
   const books = [
-    { title: "My first book", price: 11.11 },
-    { title: "My second book", price: 22.22 },
+    { title: "My first book", price: 11.11, isbn: "isbn-1" },
+    { title: "My second book", price: 22.22, isbn: "isbn-2" },
   ];
 
   test(`renders a booklist correctly`, () => {
@@ -27,7 +27,7 @@ describe("components/BookList", () => {
     // render the booklist
     render(<BookList books={books} />, {
       // Define router as wrapper so that Jest can render the `Link` component from `react-router-dom`
-      wrapper: BrowserRouter,
+      wrapper: (props) => <BrowserRouter {...props} />,
     });
 
     for (const book of books) {

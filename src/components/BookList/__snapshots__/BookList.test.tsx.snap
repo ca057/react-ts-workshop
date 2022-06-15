@@ -4,26 +4,26 @@ exports[`components/BookList renders a booklist correctly 1`] = `
 <ul>
   <li>
     <a
-      href="/books/undefined"
+      href="/books/isbn-1"
       onClick={[Function]}
     >
-      <div
+      <span
         className="booklist__item"
       >
         My first book
-      </div>
+      </span>
     </a>
   </li>
   <li>
     <a
-      href="/books/undefined"
+      href="/books/isbn-2"
       onClick={[Function]}
     >
-      <div
+      <span
         className="booklist__item"
       >
         My second book
-      </div>
+      </span>
     </a>
   </li>
 </ul>
